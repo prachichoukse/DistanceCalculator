@@ -12,7 +12,7 @@ class Conversion
      * @param $distance
      * @return float|int
      */
-    function convertMeterToYards($distance)
+   public function convertMeterToYards($distance)
     {
        $distance = $distance * self::ONE_YARDS;
        return $distance;
@@ -22,7 +22,7 @@ class Conversion
      * @param $distance
      * @return float|int
      */
-    function convertYardsToMeter($distance)
+   public function convertYardsToMeter($distance)
     {
         $distance = $distance * self::ONE_METER;
         return $distance;
