@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Distance Calculator</title>
+</head>
+<body>
+<h2>Distance Calculator</h2>
+
+<form action="API/DistanceCalculator.php" Method="post">
+    <label for="first_point">First Point:</label><br>
+    <input type="text" id="first_point" name="first_point"><br>
+    <label for="first_point_unit">Choose a unit:</label>
+    <select name="first_point_unit" id ="first_point_unit">
+        <option value="0">Meter</option>
+        <option value="1">Yards</option>
+    </select><br><br>
+
+    <label for="second_point">Second Point:</label><br>
+    <input type="text" id="second_point" name="second_point"><br>
+    <label for="second_point_unit">Choose a unit:</label>
+    <select name="second_point_unit" id="second_point_unit">
+        <option value="0">Meter</option>
+        <option value="1">Yards</option>
+    </select><br><br>
+
+    <label for="final_distance_unit">Choose a unit for distance:</label>
+    <select name="final_distance_unit" id="final_distance_unit">
+        <option value="0">Meter</option>
+        <option value="1">Yards</option>
+    </select><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
