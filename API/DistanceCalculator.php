@@ -3,6 +3,10 @@
 namespace API;
 
 use Controller\Calculation;
+use Model\Conversion;
+use Model\Data;
+use Model\Operation;
+use Model\Validate;
 
 /** API Class to calculate distance between two points */
 class DistanceCalculator
@@ -24,8 +28,24 @@ class DistanceCalculator
 
 /** ...initialization... */
 include_once('../Controller/Calculation.php');
+include_once('../Model/Data.php');
+include_once('../Model/Validate.php');
+include_once('../Model/Conversion.php');
+include_once('../Model/Operation.php');
+$validate = new Validate();
+$conversion = new Conversion();
+$operation = new Operation();
 $data = new Data($validate);
-$calculation = new Calculation($data);
-$API = new DistanceCalculator($calculation);
+$validation = new Calculation($data, $conversion,$operation);
+$API = new DistanceCalculator($validation);
 
-echo $API->calculateFinalDistance();
+header('Access-Control-Allow-Origin: *');
+header("Content-type: application/json; charset=utf-8");
+
+$response = array();
+if (is_numeric($API->calculateFinalDistance())) {
+    $response['final_distance'] = $API->calculateFinalDistance();
+}else{
+    $response['error'] = $API->calculateFinalDistance();
+}
+echo json_encode($response);
